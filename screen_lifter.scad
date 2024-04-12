@@ -13,25 +13,28 @@ translate([0,0,-20]){
 
 difference(){
     color("lightblue"){
-        translate([46,6,0])
+        translate([46,5.5,0])
         cube([90,10,80],center=true);
-        translate([-46,-6,0])
+        translate([-46,-5.5,0])
         cube([90,10,80],center=true);
     }
     translate([0,0,20])
     cylinder(h=41, d=15,center=true);
-    translate([5,10,0])
-    cube([10,10,81],center=true);
-    translate([-5,-10,0])
-    cube([10,10,81],center=true);
+    translate([6,5.5,20])
+    cube([10.1,10.5,41],center=true);
+    translate([-6,-5.5,20])
+    cube([10.1,10.5,41],center=true);
+    translate([0,0,-20])
+    cylinder(h=41, d1=21,d2=11,center=true);
 }
 
 difference(){
     color("lightgreen"){
-        translate([48,-6,0])
+        translate([48,-5.5,0])
         cube([90,10,80],center=true);
-        translate([-48,6,0])
+        translate([-48,5.5,0])
         cube([90,10,80],center=true);
     }
-    
+    translate([0,0,-20])
+    cylinder(h=41, d=25,center=true);
 }

@@ -11,17 +11,27 @@ translate([0,0,-20]){
     }
 }
 
-
-color("lightblue"){
-    translate([46,6,0])
-    cube([90,10,80],center=true);
-    translate([-46,-6,0])
-    cube([90,10,80],center=true);
+difference(){
+    color("lightblue"){
+        translate([46,6,0])
+        cube([90,10,80],center=true);
+        translate([-46,-6,0])
+        cube([90,10,80],center=true);
+    }
+    translate([0,0,20])
+    cylinder(h=41, d=15,center=true);
+    translate([5,10,0])
+    cube([10,10,81],center=true);
+    translate([-5,-10,0])
+    cube([10,10,81],center=true);
 }
 
-color("lightgreen"){
-    translate([46,-6,0])
-    cube([90,10,80],center=true);
-    translate([-46,6,0])
-    cube([90,10,80],center=true);
+difference(){
+    color("lightgreen"){
+        translate([48,-6,0])
+        cube([90,10,80],center=true);
+        translate([-48,6,0])
+        cube([90,10,80],center=true);
+    }
+    
 }

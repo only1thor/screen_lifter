@@ -1,44 +1,58 @@
+// Define parameters
+height = 40;
+diameter1 = 20;
+diameter2 = 10;
+difference_height = 39;
+difference_diameter1 = 23;
+difference_diameter2 = 21;
+difference_diameter3 = 11;
+cube_size = [90, 10, 80];
+cylinder_diameter = 15;
+cube_dimensions = [10.1, 10.5, 41];
+difference_diameter4 = 21;
+difference_diameter5 = 11;
+difference_diameter6 = 25;
 
 translate([0,0,-20])
-cylinder(h=40, d1=20,d2=10,center=true);
+cylinder(h=height, d1=diameter1, d2=diameter2, center=true);
 translate([0,0,20])
-cylinder(h=40, d=10,center=true);
+cylinder(h=height, d=diameter2, center=true);
 
 translate([0,0,-20]){
     difference(){
-        cylinder(h=39, d=23,center=true);
-        cylinder(h=40, d1=21,d2=11,center=true);
+        cylinder(h=difference_height, d=difference_diameter1, center=true);
+        cylinder(h=height, d1=difference_diameter2, d2=difference_diameter3, center=true);
     }
 }
 
 difference(){
     color("lightblue"){
-        translate([46,5.5,0])
-        cube([90,10,80],center=true);
-        translate([-46,-5.5,0])
-        cube([90,10,80],center=true);
+        translate([cube_size[0]/2, cube_size[1]/2, 0])
+        cube(cube_size, center=true);
+        translate([-cube_size[0]/2, -cube_size[1]/2, 0])
+        cube(cube_size, center=true);
     }
     translate([0,0,20])
-    cylinder(h=41, d=15,center=true);
-    translate([6,5.5,20])
-    cube([10.1,10.5,41],center=true);
-    translate([-6,-5.5,20])
-    cube([10.1,10.5,41],center=true);
+    cylinder(h=height+1, d=cylinder_diameter, center=true);
+    translate([cube_dimensions[0]/2, cube_dimensions[1]/2, 20])
+    cube(cube_dimensions, center=true);
+    translate([-cube_dimensions[0]/2, -cube_dimensions[1]/2, 20])
+    cube(cube_dimensions, center=true);
     translate([0,0,-20])
-    cylinder(h=41, d1=21,d2=11,center=true);
+    cylinder(h=height+1, d1=difference_diameter4, d2=difference_diameter5, center=true);
 }
 
 difference(){
     color("lightgreen"){
-        translate([48,-5.5,0])
-        cube([90,10,80],center=true);
-        translate([-48,5.5,0])
-        cube([90,10,80],center=true);
+        translate([cube_size[0]/2, -cube_size[1]/2, 0])
+        cube(cube_size, center=true);
+        translate([-cube_size[0]/2, cube_size[1]/2, 0])
+        cube(cube_size, center=true);
     }
     translate([0,0,-20])
-    cylinder(h=41, d=25,center=true);
-    translate([8,-5.5,-20])
-    cube([10.1,10.5,41],center=true);
-    translate([-8,5.5,-20])
-    cube([10.1,10.5,41],center=true);
+    cylinder(h=height+1, d=difference_diameter6, center=true);
+    translate([cube_dimensions[0]/2, -cube_dimensions[1]/2, -20])
+    cube(cube_dimensions, center=true);
+    translate([-cube_dimensions[0]/2, cube_dimensions[1]/2, -20])
+    cube(cube_dimensions, center=true);
 }

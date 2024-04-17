@@ -37,4 +37,8 @@ difference(){
     }
     translate([0,0,-20])
     cylinder(h=41, d=25,center=true);
+    translate([8,-5.5,-20])
+    cube([10.1,10.5,41],center=true);
+    translate([-8,5.5,-20])
+    cube([10.1,10.5,41],center=true);
 }
